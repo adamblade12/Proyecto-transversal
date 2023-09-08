@@ -25,7 +25,9 @@ import proyecto_transversal.Entidades.Materia;
 public class MateriaData {
     private Connection con;
     
-    public MateriaData(){}
+    public MateriaData(){
+        con=Conexion.getConexion();
+    }
     
     public void guardarMateria(Materia materia){
     String sql="INSERT INTO materia (nombre, año, estado) VALUES(?,?,?)";
