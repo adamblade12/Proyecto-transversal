@@ -40,7 +40,7 @@ public class MateriaData {
             ResultSet rs = ps.getGeneratedKeys();
             if(rs.next()){
                 materia.setIdMateria(rs.getInt("id_materia"));
-                JOptionPane.showMessageDialog(null, "Alumno añadido con exito");
+                JOptionPane.showMessageDialog(null, "Materia añadida con exito");
             }
             ps.close();
         } catch (SQLException ex) {
@@ -66,7 +66,7 @@ public class MateriaData {
                 materia.setAnioMateria(rs.getInt("año"));
                 materia.setActivo(true);
             }else{
-                JOptionPane.showMessageDialog(null, "No existe el alumno");
+                JOptionPane.showMessageDialog(null, "No existe la materia");
             }
             ps.close();
         } catch (SQLException ex) {
