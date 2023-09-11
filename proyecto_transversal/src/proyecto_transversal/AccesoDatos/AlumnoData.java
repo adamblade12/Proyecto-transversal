@@ -13,8 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import proyecto_transversal.Entidades.Alumno;
 
@@ -46,7 +44,7 @@ public class AlumnoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al añadir alumno "+ ex.getMessage());
         }
         
     }
@@ -74,7 +72,7 @@ public class AlumnoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumnos "+ex.getMessage());
         }
         return alumno;
         }
@@ -102,7 +100,7 @@ public class AlumnoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumnos " + ex.getMessage());
         }
         return alumno;
     }
@@ -126,7 +124,7 @@ public class AlumnoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumnos "+ex.getMessage());
         }
         return alumnos;
     }
@@ -142,7 +140,8 @@ public class AlumnoData {
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNac()));
-            ps.setInt(5, alumno.getIdAlumno());
+            ps.setBoolean(5, alumno.isActivo());
+            ps.setInt(6, alumno.getIdAlumno());
             int exito = ps.executeUpdate();
             
             if(exito == 1){
@@ -151,7 +150,7 @@ public class AlumnoData {
                 JOptionPane.showMessageDialog(null, "El alumno no existe");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumnos "+ ex.getMessage());
         }
     }
     
@@ -167,7 +166,7 @@ public class AlumnoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumnos "+ ex.getMessage());
         }
     }
 }
