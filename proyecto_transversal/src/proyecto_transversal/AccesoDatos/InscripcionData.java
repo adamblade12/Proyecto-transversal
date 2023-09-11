@@ -45,12 +45,12 @@ public class InscripcionData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al conectarse con la tabla de inscripciones "+ ex.getMessage());
         }
     }
     
     public List<Inscripcion> obtenerInscripciones(){
-        List<Inscripcion> inscripciones = new ArrayList();
+        List<Inscripcion> inscripciones = new ArrayList<>();
         try{
             String sql = "SELECT * FROM inscripcion WHERE estado = 1";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -68,16 +68,16 @@ public class InscripcionData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, "Error al conectarse con la tabla de inscripciones "+ ex.getMessage());
         }
         return inscripciones;
     }
     
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int idAlumno){
         Inscripcion inscripcion=null;
-        List <Inscripcion> inscripciones = new ArrayList();
+        List <Inscripcion> inscripciones = new ArrayList<>();
         String sql="SELECT * FROM inscripcion "
-                + "WHERE dni = ? AND estado = 1";
+                + "WHERE id_alumno = ? AND estado = 1";
         PreparedStatement ps=null;
         try{
             ps = con.prepareStatement(sql);
@@ -98,14 +98,14 @@ public class InscripcionData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(null, "Error al conectarse con la tabla de inscripciones "+ ex.getMessage());
         }
         return inscripciones;
     }
     
     public List<Materia> obtenerMateriasCursadas(int idMateria){
         Materia materia = null;
-        List <Materia> materias = new ArrayList();
+        List <Materia> materias = new ArrayList<>();
         String sql="SELECT * FROM inscripcion "
                 + "WHERE id_materia=? AND estado = 1";
         PreparedStatement ps=null;
@@ -129,6 +129,62 @@ public class InscripcionData {
             Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
         }
         return materias;
+    }
+    
+    //OBTIENE LA LISTA DE MATERIAS CURSADAS SEGUN EL ID DEL ALUMNO. VER PAG 19 PDF
+    public List <Materia> obtenerMateriasCursadas2(int IdAlumno){
+        ArrayList <Materia> lista= new ArrayList<>();
+        String sql= "SELECT * FROM materia m JOIN inscripcion i "+
+                "ON m.id_materia= i.id_materia JOIN alumno a ON i.id_alumno= (a.id_alumno=?);";
+     
+        try {
+            PreparedStatement ps= con.prepareStatement(sql);
+            ps.setInt(1, IdAlumno);
+            ResultSet rdo= ps.executeQuery();
+            if (rdo.next()){
+            Materia mat= new Materia();
+            mat.setIdMateria(rdo.getInt("id_materia"));
+            mat.setNombre(rdo.getString("nombre"));
+            mat.setAnioMateria(rdo.getInt("año"));
+            lista.add(mat);
+         }
+            else{
+            JOptionPane.showMessageDialog(null, "El alumno no curso ninguna materia");
+            }
+           ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos "+ ex.getMessage());
+        }
+   
+    return lista;
+    }
+      //OBTIENE LA LISTA DE MATERIAS NO CURSADAS SEGUN EL ID DEL ALUMNO. VER PAG 19 PDF 
+        public List <Materia> obtenerMateriasNoCursadas2(int IdAlumno){
+        ArrayList <Materia> lista= new ArrayList<>();
+        String sql= "SELECT * FROM materia m WHERE NOT EXISTS SELECT ? FROM inscripcion i WHERE m.id_materia = i.id_materia" +
+"    AND i.id_alumno = ?;";
+     
+        try {
+            PreparedStatement ps= con.prepareStatement(sql);
+            ps.setInt(1, IdAlumno);
+            ps.setInt(2, IdAlumno);
+            ResultSet rdo= ps.executeQuery();
+            if (rdo.next()){
+            Materia mat= new Materia();
+            mat.setIdMateria(rdo.getInt("id_materia"));
+            mat.setNombre(rdo.getString("nombre"));
+            mat.setAnioMateria(rdo.getInt("año"));
+            lista.add(mat);
+         }
+            else{
+            JOptionPane.showMessageDialog(null, "El alumno curso todas las materias");
+            }
+           ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos "+ ex.getMessage());
+        }
+   
+    return lista;
     }
     
     public List<Materia> obtenerMateriasNoCursadas(int idMateria){
@@ -173,7 +229,7 @@ public class InscripcionData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+              JOptionPane.showMessageDialog(null, "Error al conectarse a la tabla inscripciones "+ ex.getMessage());
         }
     }
     
@@ -191,7 +247,7 @@ public class InscripcionData {
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+              JOptionPane.showMessageDialog(null, "Error al actualizar nota "+ ex.getMessage());
         }
     }
     
@@ -216,11 +272,11 @@ public class InscripcionData {
                 alumno.setFechaNac(aData.buscarAlumno(rs.getInt("id_alumno")).getFechaNac());
                 alumno.setActivo(true);
             }else{
-                JOptionPane.showMessageDialog(null, "La inscripcion no existe");
+                JOptionPane.showMessageDialog(null, "No hay alumnos inscriptos en la materia");
             }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(null, "Error al acceder a base de datos "+ ex.getMessage());
         }
         return alumnos;
     }
