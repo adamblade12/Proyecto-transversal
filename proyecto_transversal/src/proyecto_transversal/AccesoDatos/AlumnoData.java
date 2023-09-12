@@ -3,6 +3,7 @@ package proyecto_transversal.AccesoDatos;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -18,11 +19,14 @@ import proyecto_transversal.Entidades.Alumno;
 >>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
 =======
 >>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
+=======
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
 /**
  *
  * @author pablo
  */
 public class AlumnoData {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     Connection con;
@@ -173,6 +177,9 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumnos "+ ex.getMessage());
         }
     }
+=======
+    
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
 =======
     
 >>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)

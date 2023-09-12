@@ -23,7 +23,11 @@ public class Proyecto_transversal {
     public static void main(String[] args) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+       Connection con= Conexion.getConexion();
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
 =======
        Connection con= Conexion.getConexion();
 >>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
