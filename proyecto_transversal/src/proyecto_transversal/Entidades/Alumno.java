@@ -13,23 +13,31 @@ import java.time.LocalDate;
  */
 public class Alumno {
     private int idAlumno;
-    private int dni;
     private String apellido;
     private String nombre;
     LocalDate fechaNac;
     boolean activo;
 
+<<<<<<< HEAD
     public Alumno(int idAlumno,int dni, String apellido, String nombre, LocalDate fechaNac, boolean activo) {
         this.idAlumno = idAlumno;
         this.dni = dni;
+=======
+    public Alumno(int idAlumno, String apellido, String nombre, LocalDate fechaNac, boolean activo) {
+        this.idAlumno = idAlumno;
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNac = fechaNac;
         this.activo = activo;
     }
 
+<<<<<<< HEAD
     public Alumno(int dni, String apellido, String nombre, LocalDate fechaNac, boolean activo) {
         this.dni = dni;
+=======
+    public Alumno(String apellido, String nombre, LocalDate fechaNac, boolean activo) {
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNac = fechaNac;
@@ -38,6 +46,7 @@ public class Alumno {
     
     public Alumno(){}
 
+<<<<<<< HEAD
     public int getIdAlumno() {
         return idAlumno;
     }
@@ -69,6 +78,11 @@ public class Alumno {
     public void setDni(int dni){
         this.dni = dni;
     }
+=======
+    public void setIdAlumno(int idAlumno) {
+        this.idAlumno = idAlumno;
+    }
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
@@ -85,6 +99,9 @@ public class Alumno {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
     
 }

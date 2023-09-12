@@ -64,10 +64,13 @@ public class Inscripcion {
     public void setNota(double nota) {
         this.nota = nota;
     }
+<<<<<<< HEAD
     
     public boolean isActivo(){
         return activo;
     }
+=======
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
     
     public void setActivo(boolean activo){
         this.activo = activo;
