@@ -65,10 +65,13 @@ public class Inscripcion {
         this.nota = nota;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     public boolean isActivo(){
         return activo;
     }
+=======
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
 =======
 >>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
     

@@ -19,9 +19,14 @@ public class Alumno {
     boolean activo;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Alumno(int idAlumno,int dni, String apellido, String nombre, LocalDate fechaNac, boolean activo) {
         this.idAlumno = idAlumno;
         this.dni = dni;
+=======
+    public Alumno(int idAlumno, String apellido, String nombre, LocalDate fechaNac, boolean activo) {
+        this.idAlumno = idAlumno;
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
 =======
     public Alumno(int idAlumno, String apellido, String nombre, LocalDate fechaNac, boolean activo) {
         this.idAlumno = idAlumno;
@@ -33,8 +38,12 @@ public class Alumno {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Alumno(int dni, String apellido, String nombre, LocalDate fechaNac, boolean activo) {
         this.dni = dni;
+=======
+    public Alumno(String apellido, String nombre, LocalDate fechaNac, boolean activo) {
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
 =======
     public Alumno(String apellido, String nombre, LocalDate fechaNac, boolean activo) {
 >>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
@@ -46,6 +55,7 @@ public class Alumno {
     
     public Alumno(){}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public int getIdAlumno() {
         return idAlumno;
@@ -83,6 +93,11 @@ public class Alumno {
         this.idAlumno = idAlumno;
     }
 >>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
+=======
+    public void setIdAlumno(int idAlumno) {
+        this.idAlumno = idAlumno;
+    }
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
@@ -100,6 +115,9 @@ public class Alumno {
         this.activo = activo;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
     
 =======
 >>>>>>> parent of cca2800 (Merge branch 'main' of https://github.com/adamblade12/Proyecto-transversal)
